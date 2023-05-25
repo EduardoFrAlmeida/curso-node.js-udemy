@@ -1,5 +1,3 @@
-import soma from './meu_modulo.mjs'
+import soma from "./meu_modulo.mjs";
 
-soma(2, 3)
-
-soma (6, 7)
+soma(2, 3);

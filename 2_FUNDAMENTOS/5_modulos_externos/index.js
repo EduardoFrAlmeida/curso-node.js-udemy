@@ -1,12 +1,12 @@
-const minimist = require('minimist')
+// --nome=Matheus --idade=30
+const minimist = require("minimist");
 
-const args = minimist(orocess.argv.slice(2))
+const args = minimist(process.argv.slice(2));
 
-console.log(args)
+console.log(args);
 
-const nome = args['nome']
-const profissao = args['profissao']
+const nome = args["nome"];
+const idade = args["idade"];
 
-console.log(nome, profissao)
-
-console.log(`O nome dele é ${nome} e a profissão dele é ${profissao}`)
+console.log(nome);
+console.log(idade);

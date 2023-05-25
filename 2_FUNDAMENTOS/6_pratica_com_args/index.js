@@ -1,12 +1,15 @@
+// --a=10 --b=20
+
 // externo
-const minimist = require('minimist')
+const minimist = require("minimist");
 
 // interno
-const moduloSoma = require('./soma').soma
+const meuModulo = require("./meu_modulo");
+const soma = meuModulo.soma;
 
-const args = minimist(orocess.argv.slice(2))
+const args = minimist(process.argv.slice(2));
 
-const a = parseInt(args['a'])
-const b = parseInt(args['b'])
+const a = args["a"];
+const b = args["b"];
 
-soma(a, b)
+soma(a, b);

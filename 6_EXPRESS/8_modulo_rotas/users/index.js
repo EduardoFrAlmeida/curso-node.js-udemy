@@ -1,33 +1,28 @@
-const express = require('express')
-const router = express.Router()
-const path = require("path")
+var express = require('express')
+var router = express.Router()
 
-router.use(express.json())
+const path = require('path')
 
 const basePath = path.join(__dirname, '../templates')
 
 router.get('/add', (req, res) => {
-    res.sendFile(`${basePath}/userForm.html`)
+  res.sendFile(`${basePath}/userform.html`)
 })
 
 router.post('/save', (req, res) => {
-    console.log(req.body)
+  console.log(req.body)
+  const name = req.body.name
+  const age = req.body.age
 
-    const name = req.body.name
-    const age = req.body.age
-
-    console.log(`O nome do usuário é ${name} e ele tem ${age} anos`)
-
-    res.sendFile(`${basePath}/userform.html`)
+  console.log(name)
+  console.log(age)
 })
 
+// antes do /
 router.get('/:id', (req, res) => {
-    const id = req.params.id
+  console.log(`Carregando usuário: ${req.params.id}`)
 
-    // leitura da tabela users, resgatar um usuário do banco
-    console.log(`Estamos buscando um usuário: ${id}`)
-
-    res.sendFile(`${basePath}/users.html`)
+  res.sendFile(`${basePath}/users.html`)
 })
 
 module.exports = router

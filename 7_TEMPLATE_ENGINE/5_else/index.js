@@ -1,30 +1,24 @@
-const express = require('express')
-const exphbs = require('express-handlebars')
+const express = require("express");
+const exphbs = require("express-handlebars");
 
-const app = express()
+const app = express();
 
-app.engine('handlebars', exphbs.engine())
-app.set('view engine', 'handlebars')
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
-app.get('/dashboard', (req, res) => {
-    res.render('dashboard')
-})
+app.get("/", function (req, res) {
+  const user = {
+    name: "Matheus",
+    surname: "Battisti",
+  };
 
-app.get('/', (req, res) => {
-    const user = {
-        name: 'Eduardo',
-        surname: 'Almeida',
-    }
+  const approved = false;
 
-    const palavra = 'TESTE'
+  res.render("home", { user: user, auth: true, approved });
+});
 
-    const auth = true
+app.get("/dashboard", function (req, res) {
+  res.render("dashboard");
+});
 
-    const approved = true
-
-    res.render('home', { user: user, palavra, auth, approved })
-})
-
-app.listen(3000, () => {
-    console.log('App funcionando!')
-})
+app.listen(3000);

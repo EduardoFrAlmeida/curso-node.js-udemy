@@ -1,17 +1,11 @@
-// nome
+// nome=Matheus
 
-console.log(process.argv)
+console.log(process.argv);
 
-const args = process.argv.slice(2)
+const args = process.argv.slice(2);
 
-console.log(args)
+console.log(args);
 
-const nome = args[0].split('=')[1]
+const nome = args[0].split("=")[1];
 
-console.log(nome)
-
-const idade = args[1].split('=')[1]
-
-console.log(idade)
-
-console.log(`O nome dele é ${nome} e ele tem ${idade} anos!`)
+console.log(nome);

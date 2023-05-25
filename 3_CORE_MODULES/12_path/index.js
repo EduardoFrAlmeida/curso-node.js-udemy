@@ -1,6 +1,6 @@
 const path = require('path')
 
-const customPath = '/relatorios/eduardo/relatiorio-1.pdf'
+const customPath = '/relatorios/matheus/relatorio1.pdf'
 
 console.log(path.dirname(customPath))
 console.log(path.basename(customPath))

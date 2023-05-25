@@ -1,52 +1,57 @@
 const express = require('express')
 const app = express()
-const port = 3000 // variável ambiente
+const port = 3000
 
-const path = require("path")
+const path = require('path')
+
+const basePath = path.join(__dirname, 'templates')
 
 // ler o body
-
 app.use(
-    express.urlencoded({
-        extended: true,
-    }),
+  express.urlencoded({
+    extended: true,
+  }),
 )
 
 app.use(express.json())
 
-const basePath = path.join(__dirname, 'templates')
+var checkAuth = function (req, res, next) {
+  req.authStatus = true
+
+  if (req.authStatus) {
+    console.log('Está logado, pode continuar')
+    next()
+  } else {
+    console.log('Não está logado, faça o login para continuar!')
+  }
+}
+
+app.use(checkAuth)
 
 app.get('/users/add', (req, res) => {
-    res.sendFile(`${basePath}/userForm.html`)
+  res.sendFile(`${basePath}/userform.html`)
 })
 
-app.post('users/save', (req, res) => {
-    console.log(req.body)
+app.post('/users/save', (req, res) => {
+  console.log(req.body)
+  const name = req.body.name
+  const age = req.body.age
 
-    const name = req.body.name
-    const age = req.body.age
-
-    console.log(`O nome do usuário ´w ${name} e ele tem ${age} anos`)
-
-    res.sendFile(`${basePath}/userform.html`)
+  console.log(name)
+  console.log(age)
 })
 
+// antes do /
 app.get('/users/:id', (req, res) => {
-    const id = req.params.id
+  console.log(`Carregando usuário: ${req.params.id}`)
 
-    // leitura da tabela users, resgatar um usuário do banco
-    console.log(`Estamos buscando um usuário: ${id}`)
-
-    res.sendFile(`${basePath}/users.html`)
+  res.sendFile(`${basePath}/users.html`)
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(`${basePath}/index.html`)
+  res.sendFile(`${basePath}/index.html`)
 })
 
 app.listen(port, () => {
-
-    console.log(`App rodando na porta ${port}`)
-
+  console.log(`App rodando na porta:${port}`)
 })
-

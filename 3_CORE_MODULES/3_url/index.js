@@ -1,10 +1,9 @@
 const url = require('url')
-const address = 'https://ww.meusite.com.br/catalog?produtos=cadeira'
+const address = 'https://www.meusite.com.br/catalogo?produtos=cadeira'
 const parsedUrl = new url.URL(address)
 
-
-console.log(parseUrl.host)
-console.log(parseUrl.pathname)
-console.log(parseUrl.search)
-console.log(parseUrl.searchParams)
-console.log(parseUrl.searchParams.get('produtos'))
+console.log(parsedUrl.host)
+console.log(parsedUrl.pathname)
+console.log(parsedUrl.search)
+console.log(parsedUrl.searchParams)
+console.log(parsedUrl.searchParams.get('produtos'))

@@ -1,25 +1,19 @@
-// mais de um valor
+// mais de uma valor
+const x = 10;
+const y = "Matheus";
 
-const x = 10
-
-const y = "Eduardo"
-
-const z = [1, 2, 3]
-
-console.log(x, y, z)
+console.log(x, y);
 
 // contagem de impressões
-console.count(`O valor de x é: ${x}, contagem`)
-console.count(`O valor de x é: ${x}, contagem`)
-console.count(`O valor de x é: ${x}, contagem`)
-console.count(`O valor de x é: ${x}, contagem`)
+console.count("O valor de x é: " + x + " -> contagem:");
+console.count("O valor de x é: " + x + " -> contagem:");
+console.count("O valor de x é: " + x + " -> contagem:");
+console.count("O valor de y é: " + y + " -> contagem:");
 
-// variavel entre string
+// variável entre string
+console.log("O nome dele é %s", y);
 
-console.log("O nome é %s, ele é progrmador", y)
-
-// limpar o console
-
+// limpando console
 setTimeout(() => {
-    console.clear()
-}, 2000)
+  console.clear();
+}, 2000);

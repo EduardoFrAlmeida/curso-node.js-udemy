@@ -1,12 +1,12 @@
 const path = require('path')
 
 // path absoluto
-console.log(path.resolve('reste.txt'))
+console.log(path.resolve('teste.txt'))
 
-// formar patch
+// formar path
 const midFolder = 'relatorios'
 const fileName = 'matheus.txt'
 
-const finalPath = path.join('/', 'arquivos', midFolder, fileName )
+const finalPath = path.join('/', 'arquivos', midFolder, fileName)
 
 console.log(finalPath)

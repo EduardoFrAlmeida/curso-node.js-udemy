@@ -1,5 +1,7 @@
-const fs = require('fs')
+const fs = require("fs");
 
-console.log('arquivo.txt', 'Oi!')
+console.log("Início");
 
-console.log('Fim')
+fs.writeFileSync("arquivo.txt", "Oi");
+
+console.log("Fim");

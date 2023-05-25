@@ -1,44 +1,35 @@
-const express = require('express')
-const exphbs = require('express-handlebars')
+const express = require("express");
+const exphbs = require("express-handlebars");
 
-const app = express()
+const app = express();
 
-app.engine('handlebars', exphbs.engine())
-app.set('view engine', 'handlebars')
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
-app.get('/dashboard', (req, res) => {
+app.get("/", function (req, res) {
+  const user = {
+    name: "Matheus",
+    surname: "Battisti",
+  };
 
-    const items = ['Item a', 'Item b', 'Item c']
+  res.render("home", { user: user, auth: true });
+});
 
-    res.render('dashboard', {items})
-})
+app.get("/dashboard", function (req, res) {
+  const items = ["Item a", "Item b", "Item c"];
 
-app.get('/post', (req, res) => {
-    const post = {
-        title: 'Aprender Node.js',
-        category: 'Javascript',
-        body: 'Este artigo vai te ajudar a aprender Node.js',
-        comments: 4,
-    }
+  res.render("dashboard", { items: items });
+});
 
-    res.render('blogpost', {post})
-})
+app.get("/post", function (req, res) {
+  const post = {
+    title: "Aprender Node.js",
+    category: "Node.js",
+    body: "Node.js é muito utilizado na programação hoje em dia",
+    comments: 4,
+  };
 
-app.get('/', (req, res) => {
-    const user = {
-        name: 'Eduardo',
-        surname: 'Almeida',
-    }
+  res.render("blogpost", { post });
+});
 
-    const palavra = 'TESTE'
-
-    const auth = true
-
-    const approved = true
-
-    res.render('home', { user: user, palavra, auth, approved })
-})
-
-app.listen(3000, () => {
-    console.log('App funcionando!')
-})
+app.listen(3000);
